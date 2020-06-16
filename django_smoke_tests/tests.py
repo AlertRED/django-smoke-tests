@@ -15,12 +15,10 @@ class SmokeTests(TestCase):
     def setUpClass(cls):
         super(SmokeTests, cls).setUpClass()
         cls.smoke_user_credentials = {
-            'username': 'smoke_superuser',
             'email': 'smoke@test.com',
             'password': 'smoke_password'
         }
         cls.smoke_user = get_user_model().objects.create_superuser(
-            cls.smoke_user_credentials['username'],
             cls.smoke_user_credentials['email'],
             cls.smoke_user_credentials['password'],
         )
@@ -32,7 +30,7 @@ class SmokeTests(TestCase):
         except AttributeError:
             # force_login available from Django 1.9
             self.client.login(
-                usernme=self.smoke_user_credentials['username'],
+                usernme=self.smoke_user_credentials['email'],
                 password=self.smoke_user_credentials['password']
             )
 
