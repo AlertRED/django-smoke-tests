@@ -214,6 +214,11 @@ class SmokeTestsGenerator:
             # eg. /items is provided as /items.%(format)s (/items.json)
             url_params.remove('format')
             url_as_str = url_as_str[:-len('.%(format)s')]
+        elif url_as_str.endswith('<drf_format_suffix:format>'):
+            url_as_str = url_as_str[:-len('<drf_format_suffix:format>')]
+
+        if '<int:pk>' in url_as_str or '<int:id>' in url_as_str:
+            raise UrlStructureNotSupported
 
         return url_as_str, url_params
 
