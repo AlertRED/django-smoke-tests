@@ -217,7 +217,7 @@ class SmokeTestsGenerator:
         elif url_as_str.endswith('<drf_format_suffix:format>'):
             url_as_str = url_as_str[:-len('<drf_format_suffix:format>')]
 
-        if '<int:pk>' in url_as_str or '<int:id>' in url_as_str:
+        if '<int:pk>' in url_as_str or '<int:id>' in url_as_str or ('<int:' in url_as_str and '_id>' in url_as_str):
             raise UrlStructureNotSupported
 
         return url_as_str, url_params
