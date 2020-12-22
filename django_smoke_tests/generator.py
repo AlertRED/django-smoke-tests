@@ -221,6 +221,8 @@ class SmokeTestsGenerator:
             raise UrlStructureNotSupported
         elif '<str:app_name>' in url_as_str:
             raise UrlStructureNotSupported
+        elif '<str:' in url_as_str or '<int:' in url_as_str:
+            raise UrlStructureNotSupported
 
         return url_as_str, url_params
 
