@@ -219,7 +219,7 @@ class SmokeTestsGenerator:
 
         if '<pk>' in url_as_str or '<int:pk>' in url_as_str or '<int:id>' in url_as_str or ('<int:' in url_as_str and '_id>' in url_as_str) or '<path:object_id>' in url_as_str:
             raise UrlStructureNotSupported
-        elif '<str:app_name>' in url_as_str or '<slug:app_label>' in url_as_str:
+        elif '<str:app_name>' in url_as_str or '<slug:app_label>' in url_as_str or '<slug:slug>' in url_as_str:
             raise UrlStructureNotSupported
         elif '<str:' in url_as_str or '<int:' in url_as_str:
             raise UrlStructureNotSupported
