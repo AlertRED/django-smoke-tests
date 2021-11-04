@@ -36,7 +36,7 @@ class SmokeTests(TestCase):
                 password=self.smoke_user_credentials['password']
             )
 
-    def fail_test(self, url, http_method, response):
+    def _fail_test(self, url, http_method, response):
         fail_msg = (
             '\nSMOKE TEST FAILED'
             '\nURL: {}'

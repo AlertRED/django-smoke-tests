@@ -84,11 +84,11 @@ class SmokeTestsGenerator:
             if self.allowed_status_codes and (
                 response.status_code not in self.allowed_status_codes + additional_status_codes
             ):
-                self_of_test.fail_test(url, method, response=response)
+                self_of_test._fail_test(url, method, response=response)
             elif not self.allowed_status_codes and (
                 response.status_code in self.disallowed_status_codes
             ):
-                self_of_test.fail_test(url, method, response=response)
+                self_of_test._fail_test(url, method, response=response)
         return test
 
     @staticmethod
